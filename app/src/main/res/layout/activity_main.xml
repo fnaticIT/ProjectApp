@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="50dp"
+        android:textAlignment="center"
+        android:layout_marginTop="80dp"
+        android:id="@+id/result"></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stress Detection"
+        android:textSize="30dp"
+        android:textAlignment="center"
+        android:layout_marginTop="30dp"></TextView>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="BT"
+        android:id="@+id/bt"
+        android:layout_marginTop="20dp"
+        android:imeOptions="actionDone"
+        android:lines="1"
+        ></EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="BO"
+        android:id="@+id/bo"
+        android:layout_marginTop="20dp"
+        android:imeOptions="actionDone"
+        ></EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="SH"
+        android:id="@+id/sh"
+        android:layout_marginTop="20dp"
+        android:imeOptions="actionDone"
+        ></EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="HR"
+        android:id="@+id/hr"
+        android:layout_marginTop="20dp"
+        android:imeOptions="actionDone"
+        ></EditText>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Predict"
+        android:layout_marginTop="30dp"
+        android:id="@+id/predict"></Button>
+
+</LinearLayout>
