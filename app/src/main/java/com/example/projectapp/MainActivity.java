@@ -2,8 +2,10 @@ package com.example.projectapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.res.AssetFileDescriptor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,10 +30,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+    Context context;
     private TFLiteClassifier classifier;
 
     EditText bt,bo,sh,hr;
@@ -62,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        context=this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -101,6 +106,23 @@ public class MainActivity extends AppCompatActivity {
 
                 float u = (float) f;
                 result.setText("Result - "+u);
+
+                Qlearning reco = new Qlearning(5,4);
+                Log.d("2D Array", Arrays.deepToString(reco.qTable));
+                int state= (int) u;
+
+                int action = reco.getAction(state);
+
+
+                reco.takeAction(state,action,context);
+
+                bt.setText("");
+                bo.setText("");
+                sh.setText("");
+                hr.setText("");
+                result.setText("");
+                Log.d("buffer","yo");
+                Log.d("2D Array", Arrays.deepToString(reco.qTable));
 //
 //                float f =  doInference(bt.getText().toString(),bo.getText().toString(),sh.getText().toString(),hr.getText().toString());
 //                result.setText("Result - "+f);
